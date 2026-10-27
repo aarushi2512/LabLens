@@ -3,91 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#060b0d" />
-  <title>LabLens | A clearer view of your lab results</title>
-  <meta name="description" content="Extract, review, and understand laboratory report values with LabLens." />
-  <link rel="stylesheet" href="theme.css" />
+  <meta name="theme-color" content="#f7f8f5" />
+  <title>LabLens | A clearer way to read your report</title>
+  <meta name="description" content="Review your lab values and explore a preliminary health screening with LabLens." />
+  <link rel="stylesheet" href="workspace.css" />
 </head>
-<body class="app-shell">
-  <div class="app-layout">
-    <aside class="sidebar">
-      <a class="brand" href="#overview" aria-label="LabLens home">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M12 4h8m-6 0v8L7.6 23a3.5 3.5 0 0 0 3 5h10.8a3.5 3.5 0 0 0 3-5L18 12V4M10 21h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="24" r="1.2" fill="currentColor"/><circle cx="19" cy="25" r="1.2" fill="currentColor"/></svg></span>
-        <span class="brand-name">Lab<span>Lens</span><small>LAB INTELLIGENCE</small></span>
-      </a>
-      <div class="nav-caption" data-t="workspace">Workspace</div>
-      <nav class="side-nav" aria-label="Workspace navigation">
-        <a class="nav-item active" href="#overview"><span class="nav-icon">&#9638;</span><span data-t="overview">Overview</span></a>
-        <a class="nav-item" href="#report"><span class="nav-icon">&#8599;</span><span data-t="reader">Report reader</span></a>
-        <a class="nav-item" href="#review"><span class="nav-icon">&#9776;</span><span data-t="review">Review values</span></a>
-        <a class="nav-item" href="#resultsWrap"><span class="nav-icon">&#9673;</span><span data-t="screening">Screening</span></a>
-      </nav>
-      <div class="sidebar-spacer"></div>
-      <div class="side-status"><span class="pulse-dot"></span><span data-t="localSession">Private session</span></div>
-      <div class="side-foot">LabLens <span>&middot;</span> v1.0</div>
-    </aside>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="LabLens home"><span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="13" cy="13" r="8" stroke="currentColor" stroke-width="2.2"/><path d="m19 19 7 7M13 8v10M8 13h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><strong>LabLens.</strong></a>
+    <nav aria-label="Main navigation"><a href="#report" data-t="reader">Report reader</a><a href="#review" data-t="review">Review values</a><a href="#resultsWrap" data-t="screening">Screening</a></nav>
+    <button id="langBtn" class="language-button" type="button" aria-label="Change language">हिन्दी</button>
+  </header>
 
-    <main class="main-content" id="overview">
-      <header class="topbar">
-        <div class="crumb"><span data-t="workspace">Workspace</span><span class="slash">/</span><strong data-t="overview">Overview</strong></div>
-        <div class="top-actions"><span class="connection"><i></i><span data-t="aiReady">AI READER READY</span></span><button id="langBtn" class="language-button" type="button" aria-label="Change language">Hindi</button><span class="profile-chip">LL</span></div>
-      </header>
-
-      <div class="content-wrap">
-        <section class="hero-row">
-          <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-mark">&#10022;</span><span data-t="heroEyebrow">PERSONAL LAB WORKSPACE</span></p><h1><span data-t="heroTitle">Your health data,</span><br /><em data-t="heroTitleLine">in a clearer light.</em></h1><p class="hero-subtitle" data-t="tagline">Upload a report to extract and review its laboratory values.</p></div>
-          <div class="hero-visual" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="hero-globe"><svg viewBox="0 0 64 64" fill="none"><path d="M24 8h16m-12 0v16L15 45a7 7 0 0 0 6 11h22a7 7 0 0 0 6-11L36 24V8M19 42h26" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="48" r="2" fill="currentColor"/><circle cx="37" cy="51" r="1.5" fill="currentColor"/><circle cx="40" cy="45" r="1.2" fill="currentColor"/></svg></div><span class="glow-point point-a"></span><span class="glow-point point-b"></span><span class="glow-point point-c"></span></div>
-        </section>
-
-        <div class="disclaimer-banner" role="note"><span class="info-mark">i</span><p data-t="disclaimer">Screening aid only, not a diagnosis. Always talk to a doctor about your results.</p></div>
-
-        <section class="dashboard-grid" aria-label="LabLens workspace">
-          <div class="primary-column">
-            <section class="panel upload-panel stage-card" id="report" aria-labelledby="uploadTitle">
-              <div class="panel-head"><div><p class="panel-kicker"><span class="step-number">01</span><span data-t="uploadKicker">REPORT INTAKE</span></p><h2 id="uploadTitle" data-t="uploadTitle">Bring in a lab report</h2><p class="panel-copy" data-t="uploadDescription">Extract key values and organize them for your review.</p></div><span class="ai-badge"><span class="tiny-pulse"></span> AI READER</span></div>
-              <label id="dropZone" class="upload-zone" for="reportFile" tabindex="0">
-                <span class="upload-glyph"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15.5v3A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <strong><span data-t="dropPrompt">Drop your report here</span> <span class="upload-or" data-t="or">or</span> <span class="browse-link" data-t="browse">browse files</span></strong>
-                <small data-t="fileHints">PDF, JPG, PNG, WEBP, TXT, CSV, JSON <b>&middot;</b> max 8 MB</small>
-                <input id="reportFile" type="file" aria-label="Choose a laboratory report" accept=".pdf,.jpg,.jpeg,.png,.webp,.txt,.csv,.json,application/pdf,image/*,text/plain,text/csv,application/json" />
-              </label>
-              <div class="upload-meta-row"><div id="fileMeta" class="file-meta hidden"></div><p class="privacy-copy"><span class="lock-icon">&#9672;</span><span data-t="privacy">Your report is sent to this server and then to the configured AI provider for analysis.</span></p></div>
-              <button id="uploadAnalyzeBtn" class="button button-primary" type="button" disabled><span class="button-icon">&#10022;</span><span data-t="extractButton">Extract values &amp; create summary</span><span class="button-arrow">&#8594;</span></button>
-              <div class="progress-wrap hidden" id="progressWrap" aria-live="polite"><div class="progress-label"><span id="progressText" data-t="extracting">Reading your report...</span><span class="progress-spinner"></span></div><div class="progress-track"><span></span></div></div>
-              <p id="uploadMsg" class="upload-message" aria-live="polite"></p>
-            </section>
-
-            <section class="panel review-panel stage-card" id="review" aria-labelledby="reviewTitle">
-              <div class="panel-head"><div><p class="panel-kicker"><span class="step-number">02</span><span data-t="reviewKicker">REVIEW &amp; EDIT</span></p><h2 id="reviewTitle" data-t="reviewTitle">Check your lab values</h2><p class="panel-copy" data-t="reviewDescription">AI extraction can make mistakes. Compare every value with the original report.</p></div><span class="review-badge"><span class="review-dot"></span><span data-t="editable">EDITABLE</span></span></div>
-              <div class="review-alert"><span class="alert-glyph">!</span><p data-t="reviewNotice">Review and correct extracted values before running a preliminary screening.</p></div>
-              <div id="fields" class="fields-grid"></div>
-              <div class="review-actions"><p id="msg" class="form-message" aria-live="polite"></p><div class="action-group"><button id="sampleBtn" class="button button-quiet" type="button" data-t="sample">Load sample</button><button id="clearBtn" class="button button-quiet" type="button" data-t="clear">Clear</button><button id="analyzeBtn" class="button button-primary" type="button"><span data-t="runScreening">Run preliminary screening</span><span class="button-arrow">&#8594;</span></button></div></div>
-            </section>
-          </div>
-
-          <aside class="secondary-column">
-            <section id="ocnResults" class="panel ocn-panel hidden stage-card" aria-live="polite"></section>
-            <section class="panel insight-panel stage-card">
-              <div class="panel-head compact"><div><p class="panel-kicker"><span class="step-number">03</span><span data-t="insightKicker">PRELIMINARY INSIGHTS</span></p><h2 data-t="screeningTitle">Screening overview</h2></div><span class="insight-icon">&#10022;</span></div>
-              <div class="placeholder-insight"><div class="mini-orbit"><span>&#10022;</span></div><p class="placeholder-title" data-t="insightPlaceholderTitle">Your results will appear here</p><p class="placeholder-copy" data-t="insightPlaceholder">Review your values, then run a preliminary screening to see the indicator cards.</p></div>
-              <div class="model-warning"><span>&#9888;</span><p data-t="modelWarning">Demo model uses placeholder weights and is not clinically validated. Results are not medical advice.</p></div>
-            </section>
-            <div class="privacy-card"><span class="privacy-symbol">&#9672;</span><div><strong data-t="privacyTitle">Your data, handled with care</strong><p data-t="privacyCard">Reports are processed for extraction and are not stored by this interface.</p></div></div>
-          </aside>
-        </section>
-
-        <section id="resultsWrap" class="results-section hidden stage-card" aria-live="polite">
-          <div class="results-header"><div><p class="panel-kicker"><span class="step-number">04</span><span data-t="resultsKicker">SCREENING OUTPUT</span></p><h2 data-t="results">Preliminary screening</h2><p class="panel-copy" data-t="resultsDescription">Decision support only. A healthcare professional can interpret your results in context.</p></div><span class="preliminary-badge"><span class="tiny-pulse"></span><span data-t="preliminary">PRELIMINARY</span></span></div>
-          <div class="results-cards" id="results"></div>
-          <div id="nextTest" class="next-test"></div>
-          <p class="results-disclaimer" data-t="modelWarning">Demo model uses placeholder weights and is not clinically validated. Results are not medical advice.</p>
-        </section>
-
-        <footer class="page-footer"><span>LabLens <i>&middot;</i> <span data-t="footerLine">A clearer view of your lab results</span></span><span data-t="footerPrivacy">Reports are sent to the configured AI provider for extraction.</span></footer>
+  <main id="overview" class="page-shell">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span><span data-t="heroEyebrow">A CLEARER WAY TO READ YOUR REPORT</span></p>
+        <h1 id="heroTitle"><span data-t="heroTitle">Your lab results,</span><br><em data-t="heroTitleLine">made easier to understand.</em></h1>
+        <p class="hero-description" data-t="tagline">Add the values you have. Leave the rest blank. LabLens can help you review them in plain language.</p>
+        <a class="start-link" href="#report">Start with your report <span aria-hidden="true">↓</span></a>
       </div>
-    </main>
-  </div>
-  <script src="model.js"></script>
-  <script src="app.js"></script>
+      <div class="report-art" aria-label="Illustration of a lab report">
+        <div class="art-wash"></div><div class="report-sheet"><div class="sheet-head"><span class="sheet-monogram">L</span><span>LAB REPORT</span><i></i></div><div class="sheet-rule"></div><div class="sheet-line short"></div><div class="sheet-row"><span>Hb</span><i></i></div><div class="sheet-row"><span>Glucose</span><i></i></div><div class="sheet-row"><span>Creatinine</span><i></i></div><div class="sheet-row"><span>HDL</span><i></i></div><div class="sheet-check"><b>✓</b><span>Review every value before screening</span></div></div><p class="art-caption">A little more context for every number</p>
+      </div>
+      <div class="disclaimer-banner" role="note"><span class="info-mark">i</span><p data-t="disclaimer">LabLens is a screening aid, not a diagnosis. Discuss your results with a healthcare professional.</p></div>
+    </section>
+
+    <section id="report" class="section report-section" aria-labelledby="uploadTitle">
+      <div class="section-heading"><div><p class="section-label"><span>01</span><span data-t="uploadKicker">ADD YOUR REPORT</span></p><h2 id="uploadTitle" data-t="uploadTitle">Start with a report</h2><p data-t="uploadDescription">Upload a file to copy the values into a form you can check and edit.</p></div><span class="file-limit">PDF or image · up to 8 MB</span></div>
+      <div class="upload-card">
+        <label id="dropZone" class="upload-zone" for="reportFile" tabindex="0"><span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M4 15.5v3A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="upload-prompt"><strong data-t="dropPrompt">Drop your report here</strong> <span data-t="or">or</span> <u data-t="browse">choose a file</u><small data-t="fileHints">PDF, JPG, PNG, WEBP, TXT, CSV, JSON · max 8 MB</small></span><input id="reportFile" type="file" aria-label="Choose a laboratory report" accept=".pdf,.jpg,.jpeg,.png,.webp,.txt,.csv,.json,application/pdf,image/*,text/plain,text/csv,application/json" /></label>
+        <div id="fileMeta" class="file-meta hidden"></div>
+        <button id="uploadAnalyzeBtn" class="button button-primary" type="button" disabled><span data-t="extractButton">Read report</span><span aria-hidden="true">→</span></button>
+        <div class="progress-wrap hidden" id="progressWrap" aria-live="polite"><div class="progress-label"><span id="progressText" data-t="extracting">Reading your report...</span><span class="progress-spinner"></span></div><div class="progress-track"><span></span></div></div>
+        <p id="uploadMsg" class="upload-message" aria-live="polite"></p>
+        <p class="privacy-copy"><span aria-hidden="true">↗</span><span data-t="privacy">Uploaded reports are sent to this server and the configured AI provider to read the values. Check the extracted values yourself.</span></p>
+      </div>
+      <p class="manual-link">Prefer to type them in? <a href="#review">Enter your values below</a></p>
+    </section>
+
+    <section id="review" class="section review-section" aria-labelledby="reviewTitle">
+      <div class="section-heading"><div><p class="section-label"><span>02</span><span data-t="reviewKicker">CHECK YOUR VALUES</span></p><h2 id="reviewTitle" data-t="reviewTitle">Review what you have</h2><p data-t="reviewDescription">Only enter what is on your report. It is fine to leave fields blank.</p></div><span class="edit-note">↘ &nbsp; You can edit these fields</span></div>
+      <div class="review-note"><span>✓</span><span data-t="reviewNotice">Values copied from a report should be checked against the original before screening.</span></div>
+      <div id="fields" class="fields-grid"></div>
+      <div class="review-actions"><p id="msg" class="form-message" aria-live="polite"></p><div class="action-group"><button id="sampleBtn" class="button button-secondary" type="button" data-t="sample">Try sample values</button><button id="clearBtn" class="button button-secondary" type="button" data-t="clear">Clear all</button><button id="analyzeBtn" class="button button-primary" type="button"><span data-t="runScreening">See my screening</span><span aria-hidden="true">→</span></button></div></div>
+    </section>
+
+    <section id="ocnResults" class="ocn-panel hidden" aria-live="polite"></section>
+    <section id="resultsWrap" class="section results-section hidden" aria-live="polite">
+      <div class="section-heading"><div><p class="section-label"><span>03</span><span data-t="resultsKicker">YOUR SCREENING</span></p><h2 data-t="results">Preliminary screening</h2><p data-t="resultsDescription">These indicators are a starting point for a conversation with a healthcare professional.</p></div><button class="button button-secondary print-button" type="button" onclick="window.print()">♧ &nbsp; Print or save as PDF</button></div>
+      <div class="results-cards" id="results"></div>
+      <p class="results-disclaimer" data-t="modelWarning">Screening aid only, not a diagnosis. Discuss results with a healthcare professional.</p>
+    </section>
+    <footer class="page-footer"><span>LabLens <i>·</i> <span data-t="footerLine">A clearer way to read your report</span></span><span data-t="footerPrivacy">Uploaded reports are sent to the configured AI provider for extraction.</span></footer>
+  </main>
+  <script src="model.js"></script><script src="app.js"></script>
 </body>
 </html>

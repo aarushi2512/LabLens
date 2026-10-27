@@ -1,0 +1,33 @@
+SYNTHETIC LAB REPORT — DEMO DATA ONLY
+This fictional sample is for demonstrating LabLens. It is not a real patient report.
+
+Age: 52 years
+Sex: Male
+BMI: 29.5 kg/m2
+
+Complete Blood Count
+Hemoglobin: 12.6 g/dL
+Hematocrit: 38 %
+WBC: 7.2 10^3/uL
+RBC: 4.3 10^6/uL
+MCV: 82 fL
+RDW: 15.1 %
+Platelets: 260 10^3/uL
+
+Blood Sugar
+Glucose: 118 mg/dL
+HbA1c: 5.8 %
+
+Kidney
+Creatinine: 0.9 mg/dL
+Uric acid: 6.8 mg/dL
+
+Liver
+ALT (SGPT): 52 U/L
+AST (SGOT): 38 U/L
+
+Lipids
+Total cholesterol: 225 mg/dL
+HDL: 38 mg/dL
+LDL: 145 mg/dL
+Triglycerides: 210 mg/dL
